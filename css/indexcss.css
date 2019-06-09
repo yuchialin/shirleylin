@@ -1,0 +1,171 @@
+
+@media only screen and (max-width: 800px) {
+
+    .flexcontainer{
+        display:flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+    }
+
+    h1{
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #1c1e1c;
+        font-size: 3.2em;
+        letter-spacing: .1em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    h2{
+        font-family: 'Source Sans Pro', sans-serif;
+        color:black;
+        font-size: 1.1em;
+        text-align: center;
+
+    }
+}
+
+@media only screen and (min-width: 800px){
+    .flexcontainer{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    h1{
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #1c1e1c;
+        font-size: 4em;
+        letter-spacing: .1em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    h2{
+        font-family: 'Source Sans Pro', sans-serif;
+        color:black;
+        font-size: 2em;
+        text-align: center;
+
+    }
+
+}
+
+
+
+
+h3{
+    font-family: 'Source Sans Pro', sans-serif;
+    color:black;
+    font-size:2em;
+    text-align: center;
+    padding:30px 0;
+    font-weight: bold;
+}
+
+h4{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:1.2em;
+    text-align: center;
+    margin-top:30px;
+}
+
+h5{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:1em;
+    text-align: center;
+}
+
+p{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:1em;
+}
+
+a{
+    color: #002a9d;
+}
+
+main {display:block;}
+
+
+
+
+/*--------------header------------------*/
+
+
+header{
+    background: url(../img/giraffe.jpg) no-repeat fixed bottom center;
+    height:100vh;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/*--------------nav------------------*/
+nav{
+    font-family: 'Source Sans Pro', sans-serif;
+    background: white;
+    /*border-bottom:solid .5px #7c7c7c;*/
+    -webkit-box-shadow: -2px 4px 25px 2px rgba(224,224,224,1);
+    -moz-box-shadow: -2px 4px 25px 2px rgba(224,224,224,1);
+    box-shadow: -2px 4px 25px 2px rgba(224,224,224,1);
+    /*position:relative;*/
+
+}
+
+.logo a{
+    font-weight: bold;
+    color: black;
+}
+
+
+/*--------------home------------------*/
+
+
+#home h1{
+    text-align: center;
+    margin-top:20px;
+}
+
+
+
+.item{
+    margin:50px;
+}
+
+
+#about{
+    background: aliceblue;
+}
+
+#about .item{
+    width:500px;
+}
+
+#about .item img{
+    max-width:500px;
+    width:100%;
+}
+
+#portfolio .project{
+    width:350px;
+    background-image: linear-gradient(to right, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+#portfolio .item img{
+    width:350px;
+
+}
+
+#gallery .item img{
+    width:350px;
+}
+
+
+/*--------------footer------------------*/
+footer{
+    background: #2f2f2f;
+    color:white;
+    font-family:'Source Sans Pro', sans-serif;
+    padding:50px 0;
+}
