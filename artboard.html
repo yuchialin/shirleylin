@@ -35,10 +35,16 @@
     var mouseClicked = false, mouseReleased = true;
 
     document.addEventListener("click", onMouseClick, false);
-    document.addEventListener("touchstart", onMouseClick, false);
-    document.addEventListener("touchmove", onMouseMove, false);
 
+    // document.addEventListener("mousedown", onMouseDown, false);
     document.addEventListener("mousemove", onMouseMove, false);
+    // document.addEventListener("mouseup", onMouseUp, false);
+
+    document.addEventListener("touchstart", onMouseDown, false);
+    document.addEventListener("touchmove", onMouseMove, false);
+    document.addEventListener("touchend", onMouseUp, false);
+
+
     document.addEventListener("keypress", onKeyPress, false);
     document.addEventListener("keydown", checkKey, false);
     var canDraw = true;
@@ -91,6 +97,18 @@
     function onMouseClick(e) {
         if (canDraw) {
             mouseClicked = !mouseClicked;
+
+        }
+    }
+    function onMouseDown(e) {
+        if (canDraw) {
+            mouseClicked = true;
+
+        }
+    }
+    function onMouseUp(e) {
+        if (canDraw) {
+            mouseClicked = false;
 
         }
     }
