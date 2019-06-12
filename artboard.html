@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Challenge</title>
 
     <!--style-->
@@ -43,6 +44,14 @@
     document.addEventListener("touchstart", onMouseDown, false);
     document.addEventListener("touchmove", onTouchMove, false);
     document.addEventListener("touchend", onMouseUp, false);
+
+    window.addEventListener('orientationchange', function () {
+        var originalBodyStyle = getComputedStyle (document.body).getPropertyValue('display');
+        document.body.style.display='none';
+        setTimeout(function () {
+            document.body.style.display = originalBodyStyle;
+        }, 10);
+    });
 
 
 
@@ -132,9 +141,13 @@
     }
 
 
-    screen.orientation.addEventListener("change", function(e) {
-        context.clearRect(0, 0, width, height);
-    }, false);
+    // screen.orientation.addEventListener("change", function(e) {
+    //     context.clearRect(0, 0, width, height);
+    //
+    //
+    // }, false);
+
+
 
 
 
