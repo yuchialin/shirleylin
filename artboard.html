@@ -41,7 +41,7 @@
     // document.addEventListener("mouseup", onMouseUp, false);
 
     document.addEventListener("touchstart", onMouseDown, false);
-    document.addEventListener("touchmove", onMouseMove, false);
+    document.addEventListener("touchmove", onTouchMove, false);
     document.addEventListener("touchend", onMouseUp, false);
 
 
@@ -101,7 +101,6 @@
         }
     }
     function onMouseDown(e) {
-        alert('down')
         canDraw = true
         if (canDraw) {
             mouseClicked = true;
@@ -109,7 +108,6 @@
         }
     }
     function onMouseUp(e) {
-        alert('up')
         if (canDraw) {
             mouseClicked = false;
 
@@ -122,6 +120,14 @@
             context.beginPath();
             context.fillStyle = style;
             context.fillRect(e.clientX-15, e.clientY-15, 30, 30, false);
+        }
+    }
+
+    function onTouchMove(e) {
+        if (mouseClicked) {
+            context.beginPath();
+            context.fillStyle = style;
+            context.fillRect(event.touches[0].clientX-15, event.touches[0].clientY-15, 30, 30, false);
         }
     }
 
