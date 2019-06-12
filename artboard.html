@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coding Challenge</title>
+
+    <!--style-->
+    <!--<link type="text/css" rel="stylesheet" href="css/artboard.css">-->
+    <style>
+
+        /*#canvas{*/
+            /*border: solid black 2px;*/
+        /*}*/
+    </style>
+
+
+
+</head>
+<body>
+<!--<canvas>Please update your browser</canvas>-->
+
+
+<canvas id="canvas" width="1000px" height="1000px"></canvas>
+
+<script type="text/javascript">
+
+
+    // -------------v1------------------
+
+    var canvas = document.getElementsByTagName("canvas")[0];
+    var context = canvas.getContext("2d");
+    var style = 'black';
+    var height = canvas.height = window.innerHeight;
+    var width = canvas.width = window.innerWidth;
+    var mouseClicked = false, mouseReleased = true;
+
+    document.addEventListener("click", onMouseClick, false);
+    document.addEventListener("touchstart", onMouseClick, false);
+    document.addEventListener("touchmove", onMouseMove, false);
+
+    document.addEventListener("mousemove", onMouseMove, false);
+    document.addEventListener("keypress", onKeyPress, false);
+    document.addEventListener("keydown", checkKey, false);
+    var canDraw = true;
+
+    function checkKey(e) {
+        console.log(e)
+
+        if (e.keyCode === 38) {
+            // up arrow
+            canDraw = false
+
+        }
+        else if (e.keyCode === 40) {
+            // down arrow
+            canDraw = true
+        }
+        else if (e.keyCode === 37) {
+            // left arrow
+        }
+        else if (e.keyCode === 39) {
+            // right arrow
+        }
+
+        else if (e.keyCode === 32) {
+            // up arrow
+            context.clearRect(0, 0, width, height);
+
+        }
+
+    }
+
+
+    function onKeyPress(e) {
+        console.log(e)
+        if (e.key === 'r') {
+            style = 'red'
+        }
+        else if (e.key === 'b') {
+            style = 'blue'
+        }
+        else if (e.key === 'g') {
+            style = 'green'
+        }
+        else if (e.key === 'y') {
+            style = 'yellow'
+        }
+
+    }
+
+    function onMouseClick(e) {
+        if (canDraw) {
+            mouseClicked = !mouseClicked;
+
+        }
+    }
+
+    function onMouseMove(e) {
+        if (mouseClicked) {
+
+            context.beginPath();
+            context.fillStyle = style;
+            context.fillRect(e.clientX-15, e.clientY-15, 30, 30, false);
+        }
+    }
+
+
+
+
+
+    // -------------v2------------------
+
+    // // Canvas DOM 元素
+    // var canvas = document.getElementById('canvas');
+    // var ctx = canvas.getContext('2d');
+    //
+    // //起始點座標
+    // var x1= 0;
+    // var y1= 0;
+    //
+    // // 終點座標
+    // var x2= 0;
+    // var y2= 0;
+    //
+    // // 宣告一個 hasTouchEvent 變數，來檢查是否有 touch 的事件存在
+    // const hasTouchEvent = 'ontouchstart' in window;
+    //
+    // // 透過上方的 hasTouchEvent 來決定要監聽的是 mouse 還是 touch 的事件
+    // const downEvent = hasTouchEvent ? 'ontouchstart' : 'mousedown';
+    // const moveEvent = hasTouchEvent ? 'ontouchmove' : 'mousemove';
+    // const upEvent = hasTouchEvent ? 'touchend' : 'mouseup';
+    //
+    // // 宣告 isMouseActive 為滑鼠點擊的狀態，因為我們需要滑鼠在 mousedown 的狀態時，才會監聽 mousemove 的狀態
+    // let isMouseActive = false;
+    //
+    // canvas.addEventListener(downEvent, function(e){
+    //     isMouseActive = true
+    // });
+    //
+    // canvas.addEventListener(downEvent, function(e){
+    //     isMouseActive = true;
+    //     x1 = e.offsetX;
+    //     y1 = e.offsetY;
+    //
+    //     ctx.rect(15, 15, 30, 30);
+    //     ctx.strokeStyle = "#000";
+    // });
+    //
+    // canvas.addEventListener(moveEvent, function(e){
+    //     if(!isMouseActive){
+    //         return
+    //     }
+    //     // 取得終點座標
+    //     x2 = e.offsetX;
+    //     y2 = e.offsetY;
+    //
+    //     // 開始繪圖
+    //     ctx.beginPath();
+    //     ctx.moveTo(x1, y1);
+    //     ctx.lineTo(x2, y2);
+    //     ctx.stroke();
+    //
+    //     // 更新起始點座標
+    //     x1 = x2;
+    //     y1 = y2;
+    // });
+    //
+    // canvas.addEventListener(upEvent, function(e){
+    //     isMouseActive = false
+    // });
+
+</script>
+
+</body>
+</html>
