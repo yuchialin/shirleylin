@@ -25,9 +25,9 @@
 </head>
 <body>
 
-<div onclick="ChangeRed()" id="redpicker"></div>
-<canvas id="canvas"></canvas>
 
+<canvas id="canvas"></canvas>
+<div onclick="ChangeRed()" id="redpicker"></div>
 
 <script type="text/javascript">
 
@@ -51,8 +51,8 @@
     document.addEventListener("touchmove", onTouchMove, false);
     document.addEventListener("touchend", onMouseUp, false);
 
-    window.addEventListener('orientationchange', function () {
-        location.reload()
+    screen.addEventListener('orientationchange', function () {
+        context.clearRect(0, 0, width, height);
     });
 
     var canDraw = true;
