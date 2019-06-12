@@ -101,12 +101,15 @@
         }
     }
     function onMouseDown(e) {
+        alert('down')
+        canDraw = true
         if (canDraw) {
             mouseClicked = true;
 
         }
     }
     function onMouseUp(e) {
+        alert('up')
         if (canDraw) {
             mouseClicked = false;
 
