@@ -10,10 +10,8 @@
 
         #canvas{
             border: solid black 1px;
-            width:80vw;
-            height:80vh;
-
         }
+
     </style>
 
 
@@ -22,7 +20,7 @@
 <body>
 
 
-<div id="canvas"><canvas></canvas></div>
+<canvas id="canvas"></canvas>
 
 <script type="text/javascript">
 
@@ -32,9 +30,10 @@
     var canvas = document.getElementsByTagName("canvas")[0];
     var context = canvas.getContext("2d");
     var style = 'black';
-    var height = canvas.height = window.innerHeight;
-    var width = canvas.width = window.innerWidth;
+    var height = canvas.height = 0.8*window.innerHeight;
+    var width = canvas.width = 0.8*window.innerWidth;
     var mouseClicked = false, mouseReleased = true;
+
 
     document.addEventListener("click", onMouseClick, false);
     document.addEventListener("mousemove", onMouseMove, false);
@@ -45,10 +44,12 @@
     document.addEventListener("touchmove", onTouchMove, false);
     document.addEventListener("touchend", onMouseUp, false);
 
+
+
     var canDraw = true;
 
     function checkKey(e) {
-        console.log(e)
+        console.log(e);
 
         if (e.keyCode === 38) {
             // up arrow
@@ -98,6 +99,7 @@
 
         }
     }
+
     function onMouseDown(e) {
         canDraw = true
         if (canDraw) {
