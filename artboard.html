@@ -8,19 +8,21 @@
     <!--<link type="text/css" rel="stylesheet" href="css/artboard.css">-->
     <style>
 
-        /*#canvas{*/
-            /*border: solid black 2px;*/
-        /*}*/
+        #canvas{
+            border: solid black 1px;
+            width:80vw;
+            height:80vh;
+
+        }
     </style>
 
 
 
 </head>
 <body>
-<!--<canvas>Please update your browser</canvas>-->
 
 
-<canvas id="canvas" width="1000px" height="1000px"></canvas>
+<div id="canvas"><canvas></canvas></div>
 
 <script type="text/javascript">
 
@@ -35,18 +37,14 @@
     var mouseClicked = false, mouseReleased = true;
 
     document.addEventListener("click", onMouseClick, false);
-
-    // document.addEventListener("mousedown", onMouseDown, false);
     document.addEventListener("mousemove", onMouseMove, false);
-    // document.addEventListener("mouseup", onMouseUp, false);
+    document.addEventListener("keypress", onKeyPress, false);
+    document.addEventListener("keydown", checkKey, false);
 
     document.addEventListener("touchstart", onMouseDown, false);
     document.addEventListener("touchmove", onTouchMove, false);
     document.addEventListener("touchend", onMouseUp, false);
 
-
-    document.addEventListener("keypress", onKeyPress, false);
-    document.addEventListener("keydown", checkKey, false);
     var canDraw = true;
 
     function checkKey(e) {
@@ -131,6 +129,10 @@
         }
     }
 
+
+    screen.orientation.addEventListener("change", function(e) {
+        context.clearRect(0, 0, width, height);
+    }, false);
 
 
 
