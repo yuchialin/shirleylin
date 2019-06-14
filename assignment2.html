@@ -53,7 +53,7 @@
     document.addEventListener("touchend", onMouseUp, false);
 
     window.addEventListener('orientationchange', function () {
-        context.clearRect(0, 0, width, height);
+        location.reload()
     });
 
     var canDraw = true;
