@@ -1,11 +1,41 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>Example APOD call</title>
+</head>
+<body>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title> API Quiz Question </title>
 </head>
 <body>
-<h1> API Quiz Question </h1>
-<img id="nasa_img" alt = "" width="250px"/>
+    <h1> API Quiz Question </h1>
+    <img id="nasa_img" alt = "" width="250px" src="https://apod.nasa.gov/apod/image/1906/Mice_LRGB_web.jpg"/>
 </body>
 </html>
-kI2HPJJN4k5U1E3fmvAXRsPDEZmlvD4OeHab2Bzf
+    <script>
+        var url = "https://api.nasa.gov/planetary/apod?api_key=kI2HPJJN4k5U1E3fmvAXRsPDEZmlvD4OeHab2Bzf";
+
+
+        $.ajax({
+            url: url,
+            success: function(result){
+
+                if(result.media_type === "image") {
+                    $("#nasa_img").attr("src", result.url);
+                }
+                else {
+                    $("#nasa_img").attr("alt", "No image today!!");
+                }
+
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

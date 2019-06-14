@@ -13,12 +13,7 @@
             border: solid black 1px;
         }
 
-        #redpicker{
-            width:50px;
-            height:50px;
-            background: red;
-            margin:20px 20px 20px;
-        }
+
     </style>
 
 
@@ -28,8 +23,11 @@
 
 
 <canvas id="canvas"></canvas>
-<div onclick="ChangeRed()" id="redpicker"></div>
-<div onclick="ChangeRed()" id="redpicker"></div>
+<form action="/action_page.php">
+    Select your favorite color: <input type="color" name="favcolor" value="#ff0000"><br><br>
+    <input type="submit">
+</form>
+
 <script type="text/javascript">
 
 
@@ -43,14 +41,13 @@
     var mouseClicked = false, mouseReleased = true;
 
 
-    document.addEventListener("click", onMouseClick, false);
-    document.addEventListener("mousemove", onMouseMove, false);
-    document.addEventListener("keypress", onKeyPress, false);
+    document.addEventListener("click", MouseClick, false);
+    document.addEventListener("mousemove", MouseMove, false);
+    document.addEventListener("keypress", KeyPress, false);
     document.addEventListener("keydown", checkKey, false);
-
-    document.addEventListener("touchstart", onMouseDown, false);
-    document.addEventListener("touchmove", onTouchMove, false);
-    document.addEventListener("touchend", onMouseUp, false);
+    document.addEventListener("touchstart", MouseDown, false);
+    document.addEventListener("touchmove", TouchMove, false);
+    document.addEventListener("touchend", MouseUp, false);
 
     window.addEventListener('orientationchange', function () {
         location.reload()
@@ -85,13 +82,9 @@
 
     }
 
-    function ChangeRed() {
-        style = 'red'
-    }
 
-
-    function onKeyPress(e) {
-        console.log(e)
+    function KeyPress(e) {
+        
         if (e.key === 'r') {
             style = 'red'
         }
@@ -107,27 +100,29 @@
 
     }
 
-    function onMouseClick(e) {
+
+
+    function MouseClick(e) {
         if (canDraw) {
             mouseClicked = !mouseClicked;
 
         }
     }
 
-    function onMouseDown(e) {
+    function MouseDown(e) {
         canDraw = true
         if (canDraw) {
             mouseClicked = true;
 
         }
     }
-    function onMouseUp(e) {
+    function MouseUp(e) {
         if (canDraw) {
             mouseClicked = false;
         }
     }
 
-    function onMouseMove(e) {
+    function MouseMove(e) {
         if (mouseClicked) {
 
             context.beginPath();
@@ -136,7 +131,7 @@
         }
     }
 
-    function onTouchMove(e) {
+    function TouchMove(e) {
         if (mouseClicked) {
             context.beginPath();
             context.fillStyle = style;
