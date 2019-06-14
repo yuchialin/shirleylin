@@ -52,7 +52,7 @@
     document.addEventListener("touchmove", onTouchMove, false);
     document.addEventListener("touchend", onMouseUp, false);
 
-    screen.addEventListener('orientationchange', function () {
+    window.addEventListener('orientationchange', function () {
         context.clearRect(0, 0, width, height);
     });
 
