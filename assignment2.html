@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 2</title>
 
-    <!--style-->
-    <!--<link type="text/css" rel="stylesheet" href="css/artboard.css">-->
     <style>
 
         #canvas{
             border: solid black 1px;
         }
 
-
     </style>
-
 
 
 </head>
@@ -23,10 +19,8 @@
 
 
 <canvas id="canvas"></canvas>
-<form action="/action_page.php">
-    Select your favorite color: <input type="color" name="favcolor" value="#ff0000"><br><br>
-    <input type="submit">
-</form>
+<input type="color" value="#ff0000" id="ColorPicker">
+
 
 <script type="text/javascript">
 
@@ -38,8 +32,7 @@
     var style = 'black';
     var height = canvas.height = 0.8*window.innerHeight;
     var width = canvas.width = 0.8*window.innerWidth;
-    var mouseClicked = false, mouseReleased = true;
-
+    var mouseClicked = false
 
     document.addEventListener("click", MouseClick, false);
     document.addEventListener("mousemove", MouseMove, false);
@@ -48,10 +41,17 @@
     document.addEventListener("touchstart", MouseDown, false);
     document.addEventListener("touchmove", TouchMove, false);
     document.addEventListener("touchend", MouseUp, false);
+    document.addEventListener("input", UpdateColor, false);
 
     window.addEventListener('orientationchange', function () {
         location.reload()
     });
+
+
+    function UpdateColor(event) {
+            style = event.target.value;
+    }
+
 
     var canDraw = true;
 
@@ -67,15 +67,9 @@
             // down arrow
             canDraw = true
         }
-        else if (e.keyCode === 37) {
-            // left arrow
-        }
-        else if (e.keyCode === 39) {
-            // right arrow
-        }
 
         else if (e.keyCode === 32) {
-            // up arrow
+            // space
             context.clearRect(0, 0, width, height);
 
         }
@@ -110,7 +104,7 @@
     }
 
     function MouseDown(e) {
-        canDraw = true
+        canDraw = true;
         if (canDraw) {
             mouseClicked = true;
 
